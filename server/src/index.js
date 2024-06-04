@@ -12,22 +12,6 @@ const { append } = require('vary');
 
 dotenv.config();
 
-// postgres
-const fs = require('fs'); // For reading the script file
-const script = fs.readFileSync('../database/initialize.sql', 'utf-8');
-
-(async () => {
-  try {
-    await pool.query(script);
-    console.log('Tables created successfully!');
-  } catch (err) {
-    console.error('Error creating tables:', err);
-  } finally {
-    await pool.end(); // Close the connection pool
-  }
-})();
-// postgres ends
-
 const app = express();
 
 app.use(bodyParser.json());
