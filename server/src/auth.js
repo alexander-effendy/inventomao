@@ -11,7 +11,7 @@ const router = express.Router();
 passport.use(new GoogleStrategy({
   clientID: process.env.GOOGLE_CLIENT_ID,
   clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-  callbackURL: 'http://inventomao-production.up.railway.app/auth/google/callback'
+  callbackURL: 'https://inventomao-production.up.railway.app/auth/google/callback'
 }, async (accessToken, refreshToken, profile, done) => {
   const { id, displayName, emails } = profile;
   const email = emails[0].value;
